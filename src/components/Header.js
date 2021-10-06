@@ -1,32 +1,27 @@
 import {Link, useHistory} from 'react-router-dom'
 
-import {logout} from './../redux/userReducer'
-import {useDispatch, useSelector} from 'react-redux'
+import {useSelector} from 'react-redux'
 
-function Header() {
-
+function Header({activePage}) {
     const currentUser = useSelector(state => state.users.currentUser)
-    const dispatch = useDispatch()
     const history = useHistory();
 
     function onLogout() {
-        dispatch(logout);
         history.push('/Login')
     }
 
     return (
         <div>
-           
             <header>
                 <ul>
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/add'>NewQuestion</Link></li>
-                    <li><Link to='/leaderboard'>Leaderboard</Link></li>
+                    <li><Link className={activePage==="/" ? 'active' : ""} to='/'>Home</Link></li>
+                    <li><Link className={activePage==="/add" ? 'active' : ""} to='/add'>New Question</Link></li>
+                    <li><Link className={activePage==="/leaderboard" ? 'active' : ""} to='/leaderboard'>Leaderboard</Link></li>
                 </ul>
                 <div className="user-header">
                     <img className="avatar" src={currentUser.avatarURL} alt={currentUser.name} />
                     <span>{currentUser.name}</span>
-                    <button onClick={onLogout}>Logout</button>
+                    <button className="btn" onClick={onLogout}>Logout</button>
                 </div>
             </header>
         

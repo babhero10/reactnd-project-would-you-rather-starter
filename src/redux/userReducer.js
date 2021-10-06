@@ -34,6 +34,11 @@ const usersSlice = createSlice({
         [getAllUsers.fulfilled]: (state, {payload}) => {
             state.loading = "loaded";
             state.allUsers = payload
+
+            // Refresh current user data
+            if (Object.keys(state.currentUser).length !== 0) {
+                state.currentUser = state.allUsers[state.currentUser.id] 
+            }
         },
         [getAllUsers.rejected]: (state) => {
             state.loading = "failed"

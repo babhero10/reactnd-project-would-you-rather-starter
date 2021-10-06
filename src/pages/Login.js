@@ -10,6 +10,7 @@ import {getAllUsers, login} from '../redux/userReducer'
 
 // Components
 import SelectUser from './../components/SelectUser'
+import Loading from '../components/Loading'
 
 function Login() {    
     
@@ -39,12 +40,12 @@ function Login() {
 
     return (
         
-        <div>
-            {loading === "loading" ? <p>Loading</p>:
-                <form onSubmit={onSubmit}>
+        <div className="container">
+            {loading === "loading" ? <Loading />:
+                <form onSubmit={onSubmit} style={{width: "100%"}} className="login">
                     <SelectUser allUsers={allUsers} loading={loading} onChange={onChange}/>
                     <br/>
-                    <input type="submit" value="Login" />
+                    <input className="btn full-width" type="submit" value="Login" />
                 </form>
             }
         </div>

@@ -16,11 +16,12 @@ function PrivateRoute({children,...rest}) {
 
     return (
         <Route {...rest} render={({location}) => {
+            
             return authenticate() === true ? 
-            <div><Header/> {children}</div>
+            <div><Header activePage={location.pathname}/> {children}</div>
             : <Redirect to={{
                 pathname: '/login',
-                state: {from: location}
+                state: {from: location.pathname==="/logout" ? '/' : location.pathname}
             }}/>
         }}/>
     )
