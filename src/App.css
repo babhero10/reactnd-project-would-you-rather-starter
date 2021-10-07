@@ -294,3 +294,26 @@ header ul li:hover a {
   color: white;
   font-weight: bold;
 }
+
+/* Not found page */
+.not-found {
+  margin-top: 2rem;
+  color: #555; 
+}
+
+/* progress bar */
+.progress {
+  background-color: var(--grey-blue);
+}
+
+.bar {
+  background-color: var(--soft-blue);
+  color: white;
+}
+
+.progress-text {
+  text-align: center;
+  right: 0;
+  left: 0;
+  padding: .3rem;
+}

@@ -24,11 +24,21 @@ function ViewPoll({question, user}) {
 
                         <div className={`vote-result ${user.answers[question.id] === "optionOne" ? "vote-result-selected" : ""} `}>
                             <p>{question.optionOne.text}</p>
+                            <div className='progress'>
+                                <div className='bar' style={{width: `${votesOfOne/totalVotes*100}%`}}>
+                                    <div className='progress-text'>{Math.round(10*votesOfOne/totalVotes*100)/10}% Completed</div>
+                                </div>
+                            </div>
                             <p>{votesOfOne} of {totalVotes}</p>
                         </div>
                     
                         <div className={`vote-result ${user.answers[question.id] === "optionTwo" ? "vote-result-selected" : ""} `}>
                             <p>{question.optionTwo.text}</p>
+                            <div className='progress'>
+                                <div className='bar' style={{width: `${votesOfTwo/totalVotes*100}%`}}>
+                                    <div className='progress-text'>{Math.round(10*votesOfTwo/totalVotes*100)/10}% Completed</div>
+                                </div>
+                            </div>
                             <p>{votesOfTwo} of {totalVotes}</p>
                         </div>
 

@@ -40,12 +40,12 @@ function App() {
           <PrivateRoute path="/leaderboard">
               <Leaderboard />
           </PrivateRoute>
-          <PrivateRoute exact path="/question/:id">
+          <PrivateRoute exact path="/questions/:question_id">
               <Question />
           </PrivateRoute>
-          <Router>
+          <PrivateRoute>
               <NotFound />
-          </Router>
+          </PrivateRoute>
         </Switch>
       </div>
     </Router>

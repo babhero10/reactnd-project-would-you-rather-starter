@@ -4,6 +4,7 @@ function UserScoreCard({user}) {
     const totalScore = answered + created;
     return (
         <div className="user-score-card question" style={{alignItems: "center"}}>
+            <p>{user.name}</p>
             <img className="avatar-large" src={user.avatarURL} alt={user.name} />
             <div>
                 <p>Answered: {answered}</p>

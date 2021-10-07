@@ -34,6 +34,7 @@ function CreateQuestion() {
     return (
         <div className="container">
             <div className="home-container">
+                <p>Would You Rather?</p>
                 <form className="create-question" onSubmit={onSubmit}>
                     <input className="input full-width" placeholder="Option One" type="text" name="optionOne" onChange={onChange}/>
                     <p>OR</p>

@@ -11,7 +11,7 @@ function Question() {
     const dispatch = useDispatch()
     const questions = useSelector(state => state.questions.questions)
     const loadingQuestions = useSelector(state => state.questions.loadingQuestions)
-    const questionId = useParams().id
+    const questionId = useParams().question_id
 
     const currentUser = useSelector(state => state.users.currentUser)
     const [poll, setPoll] = useState(true);
@@ -23,6 +23,7 @@ function Question() {
     }, [dispatch, questions])
     
     useEffect(() => {
+        
         if (questions.length !== 0) {
             if (questions[questionId].optionOne.votes.includes(currentUser.id) || questions[questionId].optionTwo.votes.includes(currentUser.id)) {
                 setPoll(false);

@@ -16,7 +16,7 @@ function QuestionCard({questionInfo}) {
                 <div className="question-text">
                     <p>Would you rather?</p>
                     <p>{questionInfo.optionOne.text} or ...</p>
-                    <Link className="btn full-width" to={`/question/${questionInfo.id}`}>view poll</Link>
+                    <Link className="btn full-width" to={`/questions/${questionInfo.id}`}>view poll</Link>
                 </div>
             </div>
         </div>

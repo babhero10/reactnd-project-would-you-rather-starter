@@ -32,7 +32,7 @@ const QuestionsSlice = createSlice({
     },
     reducers: {
         getUnAnsweredQuestions: (state, {payload}) => {
-            state.unAnswered = Object.keys(state.questions).filter((key) => {
+            state.unAnswered = Object.keys(state.questions).sort((key1, key2) => state.questions[key2].timestamp - state.questions[key1].timestamp).filter((key) => {
              
                 if (key in payload.answers) {
                     return false
@@ -42,7 +42,7 @@ const QuestionsSlice = createSlice({
             }).map(key=>state.questions[key])
         },
         getAnsweredQuestions: (state, {payload}) => {
-            state.answered = Object.keys(state.questions).filter((key) => {
+            state.answered = Object.keys(state.questions).sort((key1, key2) => state.questions[key2].timestamp - state.questions[key1].timestamp).filter((key) => {
                 if (key in payload.answers) {
                     return true
                 } else {
